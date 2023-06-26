@@ -14,6 +14,7 @@
   </head>
   <body>
     <div id="root">
+      <img v-if="showImage" src="제목 4.png" alt="Your Image" width="200px" />
       <div>{{word}}</div>
       <form v-on:submit="onSubmitForm">
         <input type="text" v-model="value" ref="answer" id="text" />
@@ -28,6 +29,12 @@
           word: "델리",
           result: "",
           value: "",
+          showImage: true,
+        },
+        mounted() {
+          setTimeout(() => {
+            this.showImage = false;
+          }, 3000); // 3초 후에 이미지가 사라짐
         },
         methods: {
           onSubmitForm(e) {
